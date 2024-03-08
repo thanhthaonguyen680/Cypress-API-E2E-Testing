@@ -1,6 +1,6 @@
 import LoginPage from "../pages/login";
 
-const logindata = require("../../fixtures/login")
+const login = require("../../fixtures/login")
 describe("Login Test",()=> {
     before("",()=>{
         cy.visit("/login")
@@ -9,8 +9,8 @@ describe("Login Test",()=> {
     })
 
     it("TC_01_Login_Successfully",()=>{
-        cy.get(LoginPage.newUser).clear().type(logindata.username)
-        cy.get(LoginPage.passWord).clear().type(logindata.password)
+        cy.get(LoginPage.newUser).clear().type(login.username)
+        cy.get(LoginPage.passWord).clear().type(login.password)
         cy.get(LoginPage.loginBtn).click()
     })
     
