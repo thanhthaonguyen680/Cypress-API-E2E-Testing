@@ -14,6 +14,11 @@ module.exports = defineConfig({
   },
   e2e: {
     setupNodeEvents(on, config) {
+      
+      //Requires and imports the main plugin function from the cypress-image-diff-js NPM package
+     const getCompareSnapshotsPlugin = require("cypress-image-diff-js/plugin");
+     //Calls the plugin's getCompareSnapshotsPlugin function, passing Cypress' on and config objects, to intialize and register the plugin with Cypress
+     getCompareSnapshotsPlugin(on, config);
       // require('cypress-mochawesome-reporter/plugin')(on)
       // implement node event listeners here
     },
@@ -22,4 +27,5 @@ module.exports = defineConfig({
   //reponsive same with laptop device
   viewportWidth: 1366,
   viewportHeight: 768
+  
 });

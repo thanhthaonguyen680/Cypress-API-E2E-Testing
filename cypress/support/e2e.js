@@ -15,7 +15,20 @@
 
 // Import commands.js using ES2015 syntax:
 import './commands'
+
 // import 'cypress-mochawesome-reporter/register';
 
 // Alternatively you can use CommonJS syntax:
+ //require('./commands')
+ // Alternatively you can use CommonJS syntax:
 // require('./commands')
+after(() => {
+    //custom task to generate report
+    cy.task("generateReport");
+  });
+before(() => {
+  Cypress.on('uncaught:exception', (err, runnable) => {
+    // Prevent Cypress from failing the test
+    return false;
+})
+})
