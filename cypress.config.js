@@ -2,18 +2,20 @@ const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
   projectId: "9pvrjf",
-  // reporter: 'cypress-mochawesome-reporter',
+  reporter: 'cypress-mochawesome-reporter',
   reporterOptions: {
-    // reportDir: "cypress\reports",
-    overwrite: true,
+  reportDir: "cypress/reports",
+
+    overwrite: false,
     html: true,
-    json: false,
+    json: true,
     embeddedScreenshots: true,
     reportPageTitle: "My test Suite Result"
 
   },
   e2e: {
     setupNodeEvents(on, config) {
+    require('cypress-mochawesome-reporter/plugin')(on);
       
       //Requires and imports the main plugin function from the cypress-image-diff-js NPM package
      const getCompareSnapshotsPlugin = require("cypress-image-diff-js/plugin");

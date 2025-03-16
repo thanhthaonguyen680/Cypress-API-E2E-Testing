@@ -1,0 +1,131 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 1,
+    "pending": 0,
+    "failures": 1,
+    "start": "2025-03-16T15:01:01.893Z",
+    "end": "2025-03-16T15:01:03.342Z",
+    "duration": 1449,
+    "testsRegistered": 2,
+    "passPercent": 50,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "db77c26c-33fb-4796-a417-c5466da4511a",
+      "title": "",
+      "fullFile": "cypress/e2e/tests/test_api_login.cy.js",
+      "file": "cypress/e2e/tests/test_api_login.cy.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8302944d-13d0-46f5-ac97-0298c5586fac",
+          "title": "Test_API",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "get bookstore",
+              "fullTitle": "Test_API get bookstore",
+              "timedOut": null,
+              "duration": 632,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"GET\",\n  url: _API_Login_Page.default.getBook\n}).then(Response => {\n  expect(Response.status).to.eq(200);\n});",
+              "err": {},
+              "uuid": "36b1bfac-5227-46ff-b728-d4cfbda064a5",
+              "parentUUID": "8302944d-13d0-46f5-ac97-0298c5586fac",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "create user account",
+              "fullTitle": "Test_API create user account",
+              "timedOut": null,
+              "duration": 775,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": null,
+              "code": "cy.request({\n  method: \"POST\",\n  url: _API_Login_Page.default.createAccountUser,\n  body: {\n    userName: username,\n    password: apidata.password\n  }\n}).then(response => {\n  expect(response.status).to.eq(201);\n});",
+              "err": {
+                "message": "CypressError: `cy.request()` failed on:\n\nhttps://demoqa.com/Account/v1/User\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://demoqa.com/Account/v1/User\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.17.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 52\n}\nBody: {\"userName\":\"thaonguyen1742137261871\",\"password\":\"\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"nginx/1.17.10 (Ubuntu)\",\n  \"date\": \"Sun, 16 Mar 2025 15:01:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"59\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"etag\": \"W/\\\"3b-kfIAtNk1nsLmMi3OoOPrbSi9YOU\\\"\"\n}\nBody: {\n  \"code\": \"1200\",\n  \"message\": \"UserName and Password required.\"\n}\n\n\nhttps://on.cypress.io/request",
+                "estack": "CypressError: `cy.request()` failed on:\n\nhttps://demoqa.com/Account/v1/User\n\nThe response we received from your web server was:\n\n  > 400: Bad Request\n\nThis was considered a failure because the status code was not `2xx` or `3xx`.\n\nIf you do not want status codes to cause failures pass the option: `failOnStatusCode: false`\n\n-----------------------------------------------------------\n\nThe request we sent was:\n\nMethod: POST\nURL: https://demoqa.com/Account/v1/User\nHeaders: {\n  \"Connection\": \"keep-alive\",\n  \"user-agent\": \"Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Cypress/13.17.0 Chrome/118.0.5993.159 Electron/27.3.10 Safari/537.36\",\n  \"accept\": \"*/*\",\n  \"accept-encoding\": \"gzip, deflate\",\n  \"content-type\": \"application/json\",\n  \"content-length\": 52\n}\nBody: {\"userName\":\"thaonguyen1742137261871\",\"password\":\"\"}\n\n-----------------------------------------------------------\n\nThe response we got was:\n\nStatus: 400 - Bad Request\nHeaders: {\n  \"server\": \"nginx/1.17.10 (Ubuntu)\",\n  \"date\": \"Sun, 16 Mar 2025 15:01:02 GMT\",\n  \"content-type\": \"application/json; charset=utf-8\",\n  \"content-length\": \"59\",\n  \"connection\": \"keep-alive\",\n  \"x-powered-by\": \"Express\",\n  \"etag\": \"W/\\\"3b-kfIAtNk1nsLmMi3OoOPrbSi9YOU\\\"\"\n}\nBody: {\n  \"code\": \"1200\",\n  \"message\": \"UserName and Password required.\"\n}\n\n\nhttps://on.cypress.io/request\n    at <unknown> (https://demoqa.com/__cypress/runner/cypress_runner.js:132876:72)\n    at tryCatcher (https://demoqa.com/__cypress/runner/cypress_runner.js:1830:23)\n    at Promise._settlePromiseFromHandler (https://demoqa.com/__cypress/runner/cypress_runner.js:1542:31)\n    at Promise._settlePromise (https://demoqa.com/__cypress/runner/cypress_runner.js:1599:18)\n    at Promise._settlePromise0 (https://demoqa.com/__cypress/runner/cypress_runner.js:1644:10)\n    at Promise._settlePromises (https://demoqa.com/__cypress/runner/cypress_runner.js:1724:18)\n    at _drainQueueStep (https://demoqa.com/__cypress/runner/cypress_runner.js:2430:12)\n    at _drainQueue (https://demoqa.com/__cypress/runner/cypress_runner.js:2423:9)\n    at Async._drainQueues (https://demoqa.com/__cypress/runner/cypress_runner.js:2439:5)\n    at Async.drainQueues (https://demoqa.com/__cypress/runner/cypress_runner.js:2309:14)\nFrom Your Spec Code:\n    at Context.eval (webpack://thaotest/./cypress/e2e/tests/test_api_login.cy.js:15:11)",
+                "diff": null
+              },
+              "uuid": "23b12231-a860-4e67-8c25-334faf075908",
+              "parentUUID": "8302944d-13d0-46f5-ac97-0298c5586fac",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "36b1bfac-5227-46ff-b728-d4cfbda064a5"
+          ],
+          "failures": [
+            "23b12231-a860-4e67-8c25-334faf075908"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 1407,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "7.1.3"
+    },
+    "marge": {
+      "options": {
+        "reportDir": "cypress/reports/.jsons",
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "embeddedScreenshots": true,
+        "reportPageTitle": "My test Suite Result"
+      },
+      "version": "6.2.0"
+    }
+  }
+}

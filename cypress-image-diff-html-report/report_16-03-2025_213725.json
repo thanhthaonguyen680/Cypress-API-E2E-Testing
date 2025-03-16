@@ -1,0 +1,31 @@
+{
+  "total": 1,
+  "totalPassed": 0,
+  "totalFailed": 1,
+  "totalSuites": 1,
+  "suites": [
+    {
+      "name": "first_UI_test.cy.js",
+      "path": "cypress/e2e/first_UI_test.cy.js",
+      "tests": [
+        {
+          "status": "fail",
+          "name": "first_UI_test.cy-Heading Default-page",
+          "percentage": 0.722554516207459,
+          "failureThreshold": 0,
+          "specPath": "cypress/e2e/first_UI_test.cy.js",
+          "specFilename": "first_UI_test.cy.js",
+          "baselinePath": "cypress-image-diff-screenshots/baseline/first_UI_test.cy-Heading Default-page.png",
+          "diffPath": "cypress-image-diff-screenshots/diff/first_UI_test.cy-Heading Default-page.png",
+          "comparisonPath": "cypress-image-diff-screenshots/comparison/first_UI_test.cy-Heading Default-page.png"
+        }
+      ]
+    }
+  ],
+  "startedAt": "2025-03-16T14:37:25.069Z",
+  "endedAt": "2025-03-16T14:38:54.732Z",
+  "duration": 83109,
+  "browserName": "electron",
+  "browserVersion": "118.0.5993.159",
+  "cypressVersion": "13.17.0"
+}
