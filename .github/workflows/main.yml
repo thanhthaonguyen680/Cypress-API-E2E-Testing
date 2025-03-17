@@ -17,6 +17,12 @@ jobs:
       with:
         start: npm run test-headless2
         record: true
+    - name: Upload Mochawesome Report (HTML)
+      if: success() || failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: mochawesome-report
+        path: mochawesome-report/
       env:
         CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
