@@ -1,6 +1,11 @@
 name: Cypress Tests
+
 on:
   push:
+    branches:
+      - main
+      - develop
+  pull_request:
     branches:
       - main
       - develop
@@ -9,20 +14,29 @@ jobs:
   cypress:
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
-    - name: Run Cypress tests
-      uses: cypress-io/github-action@v6
-      with:
-        start: npm run test-headless2
-        record: true
-    - name: Upload Mochawesome Report (HTML)
-      if: success() || failure()
-      uses: actions/upload-artifact@v4
-      with:
-        name: mochawesome-report
-        path: mochawesome-report/
-      env:
-        CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run Cypress tests
+        uses: cypress-io/github-action@v6
+        with:
+          start: npm run test-headless2
+          record: true
+        env:
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Upload Mochawesome Report (HTML)
+        if: success() || failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: mochawesome-report
+          path: mochawesome-report/
